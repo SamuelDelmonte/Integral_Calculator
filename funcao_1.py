@@ -20,7 +20,6 @@ def graph ():
 def sumEsq(n, intervalo_a, intervalo_b):
     delta_x = (intervalo_b - intervalo_a) / n #Variação entre os subintervalos
     xi = intervalo_a #Valor dos subintervalos
-    y = 0 #função que começará como 0
     area = 0 #Área sob a função
         
     for x in np.arange (intervalo_a, intervalo_b, delta_x): #Loop que representa o somatório de f(xi) * Δx
@@ -33,7 +32,6 @@ def sumEsq(n, intervalo_a, intervalo_b):
 def sumDir(n, intervalo_a, intervalo_b):
     delta_x = (intervalo_b - intervalo_a) / n
     xi = intervalo_a + delta_x
-    y = 0
     area = 0
     
     for x in np.arange (intervalo_a, intervalo_b, delta_x):
@@ -46,7 +44,6 @@ def sumDir(n, intervalo_a, intervalo_b):
 def sumMedPoint(n, intervalo_a, intervalo_b):
     delta_x = (intervalo_b - intervalo_a) / n
     xi = intervalo_a
-    y = 0
     area = 0
     
     for x in np.arange(intervalo_a, intervalo_b, delta_x):
@@ -61,9 +58,15 @@ def sumTrap():
     area = (sumEsq(n, intervalo_a, intervalo_b) + sumDir(n, intervalo_a, intervalo_b)) / 2
     
     return area
+
+def sumSimpson():
+    area = (2 * (sumEsq(n, intervalo_a, intervalo_b)) + sumDir(n, intervalo_a, intervalo_b)) / 3
+    
+    return area
     
 graph()
 print(f'ESQ({n}) = ', sumEsq(n, intervalo_a, intervalo_b))
 print(f'DIR({n}) = ', sumDir(n, intervalo_a, intervalo_b))
 print(f'MED({n}) = ', sumMedPoint(n, intervalo_a, intervalo_b))
 print(f'TRAP({n}) = ', sumTrap())
+print(f'SIMP({n}) = ', sumSimpson())

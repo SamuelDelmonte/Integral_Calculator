@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 n = int(input('n = ')) #Número de subdivisões
 intervalo_a = int(input('a = ')) #Início do intervalo "a"
 intervalo_b = int(input('b = ')) #fim do intervalo "b"
-e = 2.71828 #número de Euler para a função exponencial
+e = 2.718 #número de Euler para a função exponencial
 
 def graph (): #Função que plota o gráfico da função dada no devido intervalo
     eixo_x = []
